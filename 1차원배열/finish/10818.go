@@ -4,37 +4,35 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"sort"
 )
 
 func main() {
-	var reader *bufio.Reader = bufio.NewReader(os.Stdin)
-	var writer *bufio.Writer = bufio.NewWriter(os.Stdout)
+	r := bufio.NewReader(os.Stdin)
+	w := bufio.NewWriter(os.Stdout)
 
-	defer writer.Flush()
+	defer w.Flush()
 
-	var N int
-	fmt.Fscan(reader, &N)
-	var array = make([]int, N)
+	var N, inputN int
+
+	fmt.Fscan(r, &N)
+
+	arrayN := make([]int, N)
 
 	for i := 0; i < N; i++ {
-		fmt.Fscan(reader, &array[i])
+		fmt.Fscan(r, &inputN)
+		arrayN[i] = inputN
 	}
 
-	sort.Slice(array, func(i, j int) bool {
-		return array[i] < array[j]
-	})
+	for i := 0; i < len(arrayN); i++ {
+		for j := 0; j < len(arrayN)-1; j++ {
+			var temp int
+			if arrayN[j] > arrayN[j+1] {
+				temp = arrayN[j]
+				arrayN[j] = arrayN[j+1]
+				arrayN[j+1] = temp
+			}
+		}
+	}
 
-	fmt.Fprintf(writer, "%d %d", array[0], array[N-1])
-
+	fmt.Fprintln(w, arrayN[0], arrayN[N-1])
 }
-
-// for i := 0; i < len(array); i++ {
-// 	for j := 0; j < len(array)-1; j++ {
-// 		if array[j] > array[j+1] {
-// 			var temp int = array[j]
-// 			array[j] = array[j+1]
-// 			array[j+1] = temp
-// 		}
-// 	}
-// }
