@@ -23,13 +23,13 @@ function solution(id_list, report, k) {
     return answer;
 }
 
-console.log(
-    solution(
-        ["muzi", "frodo", "apeach", "neo"],
-        ["muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"],
-        2
-    )
-);
+// console.log(
+//     solution(
+//         ["muzi", "frodo", "apeach", "neo"],
+//         ["muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"],
+//         2
+//     )
+// );
 // console.log(
 //     solution(
 //         ["con", "ryan"],
@@ -58,3 +58,43 @@ console.log(
 // for (var value of iterable) {
 //     console.log(value); // 3, 5, 7
 // }
+
+// const arr = ["banana", "b", "Boy"];
+// console.log(
+//     arr.sort((a, b) => {
+//         const upperCaseA = a.toUpperCase();
+//         const upperCaseB = b.toUpperCase();
+//         if (upperCaseA > upperCaseB) return 1;
+//         if (upperCaseA < upperCaseB) return -1;
+//         if (upperCaseA === upperCaseB) return 0;
+//     })
+// ); // b, banana, Boy
+// console.log(
+//     arr.sort((a, b) => {
+//         const upperCaseA = a.toUpperCase();
+//         const upperCaseB = b.toUpperCase();
+//         if (upperCaseA < upperCaseB) return 1;
+//         if (upperCaseA > upperCaseB) return -1;
+//         if (upperCaseA === upperCaseB) return 0;
+//     })
+// ); // Boy, banana, b
+
+// const arr = [
+//     { name: "banana", price: 3000 },
+//     { name: "apple", price: 1000 },
+//     { name: "orange", price: 500 },
+// ];
+// // ! 오름차순
+// console.log(arr.sort((a, b) => a.price - b.price));
+// // [
+// //     { name: "orange", price: 500 },
+// //     { name: "apple", price: 1000 },
+// //     { name: "banana", price: 3000 },
+// // ];
+// // ! 내림차순
+// console.log(arr.sort((a, b) => b.price - a.price));
+// [
+//     { name: 'banana', price: 3000 },
+//     { name: 'apple', price: 1000 },
+//     { name: 'orange', price: 500 }
+// ]
