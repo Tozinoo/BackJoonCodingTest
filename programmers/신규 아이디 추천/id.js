@@ -1,31 +1,16 @@
 function solution(new_id) {
-    let newId = new_id.toLowerCase();
-    newId = newId.replace(/[^\w-._]+/g, "");
-    let answer = "";
-    for (let i = 0; i < newId.length; i++) {
-        if (newId[i] !== newId[i + 1]) answer += newId[i];
-    }
+    let newId = new_id.toLowerCase(); //step 1
+    newId = newId.replace(/[^\w-._]+/g, ""); // step 2
+    let answer = newId; // step 3
 
-    if (answer[0] === ".") answer = answer.replace(answer[0], "");
-
-    if (answer[answer.length - 1] === ".")
-        answer = answer.replace(answer[answer.length - 1], "");
+    answer = answer.replace(/\.+/g, ".").replace(/^\.|\.$/, ""); // step 3, step 4
 
     if (answer === null || answer === "") answer = "a";
 
-    if (answer.length >= 16) {
-        answer = answer.substring(0, 15);
-        console.log(answer);
-        console.log(answer[14]);
-        if (answer[14] === ".")
-            answer = answer.replace(answer[answer.length - 1], "");
-    }
+    answer = answer.slice(0, 15).replace(/\.$/, "");
 
-    const b = answer;
-    while (answer.length < 3) {
-        answer = answer + b[b.length - 1];
-    }
-    console.log(answer);
+    if (answer.length === 1) answer = answer[0].repeat(3);
+    if (answer.length === 2) answer = answer + answer[1];
     return answer;
 }
 
