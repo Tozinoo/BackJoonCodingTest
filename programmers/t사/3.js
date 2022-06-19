@@ -1,9 +1,15 @@
 function solution(paper, n) {
     let setArray = paper;
+    setArray;
     if (n !== 0) {
         switch (n) {
             case 1:
-                setArray = fold(setArray);
+                let z = fold(setArray);
+
+                for (let i = 0; i < z.length; i++) {
+                    setArray.push(z[i]);
+                }
+
                 break;
             case 2:
                 setArray = fold(setArray);
@@ -148,6 +154,6 @@ tempB.push(array[i] + array[i + j * 2 + 1]);
 // console.log(fold2([71, 53, 35, -22, 19, 75, 88, -14]));
 // console.log(fold([71, 53, 35, -22, 19, 75, 88, -14]));
 // 3번 접을 수 있음
-// console.log(solution([7, 3, 5, -2, 9], 4));
+// console.log(solution([7, 3, 5, -2, 9], 2));
 // console.log(solution([10, -10], 1));
-console.log(solution([7, 3, -7, 5, -3, 11, 10, 22, 33, 62], 4));
+// console.log(solution([7, 3, -7, 5, -3, 11, 10, 22, 33, 62], 4));
