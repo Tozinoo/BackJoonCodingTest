@@ -15,7 +15,7 @@ function solution(arr, n) {
     if (a < b) return -1;
   });
 
-  return tmp[2];
+  return tmp[n - 1];
 }
 /*
 0 1 2   62
